@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog MDX`,
-    author: `Matt Hagner`,
+    title: `TheTomBomb`,
+    author: `Thomas Desmond`,
     description: `An extension of the gatsby starter blog, with support for MDX`,
     siteUrl: `https://gatsby-starter-blog-mdx-demo.netlify.com/`,
     social: {
-      twitter: `mattinthecouch`,
+      twitter: `ThomasJDesmond`,
     },
   },
   plugins: [
@@ -83,7 +83,7 @@ module.exports = {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
-                  data: edge.node.frontmatter.date,
+                  data: edge.node.frontmatter.published,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
@@ -101,14 +101,14 @@ module.exports = {
             {
               allMdx(
                 limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] },
+                sort: { order: DESC, fields: [frontmatter___published] },
               ) {
                 edges {
                   node {
                     fields { slug }
                     frontmatter {
                       title
-                      date
+                      published
                     }
                     html
                   }

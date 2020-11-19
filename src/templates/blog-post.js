@@ -26,7 +26,7 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-1),
           }}
         >
-          {post.frontmatter.date}
+          {post.frontmatter.published}
         </p>
         <MDXRenderer>{post.body}</MDXRenderer>
         <hr
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        published(formatString: "MMMM DD, YYYY")
       }
       body
     }

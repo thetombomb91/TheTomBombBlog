@@ -1,0 +1,106 @@
+---
+title: 'const in JavaScript is weird! The non-immutable const.'
+description: ""
+published: 2020-08-21
+redirect_from: 
+            - https://www.thetombomb.com/2020/08/21/const-in-javascript-is-weird-the-non-immutable-const/
+categories: "Programming"
+hero: ./img/wp-content-uploads-2020-08-pngfuel.com_.png
+---
+<!-- wp:image {"align":"right","id":2270,"width":136,"height":151,"sizeSlug":"large"} -->
+
+![JavaScript logo](./img/wp-content-uploads-2020-08-pngfuel.com_.png)
+
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+
+Const variables in JavaScript have a behavior that I would not expect. Coming from a .NET/C# background const, behaves quite a bit differently than what I was used to.
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+
+Looking at the developer documentation for JavaScript, the declaration of a **const **"creates a constant whose scope can be either global or local to the block in which it is declared" ([docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const#:~:text=The%20const%20declaration%20creates%20a,variable%20identifier%20cannot%20be%20reassigned.&text=A%20constant%20cannot%20share%20its,variable%20in%20the%20same%20scope.)). That sounds all normal; well because it is so far.
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+
+As we read further, we get to this line: "The **`const` declaration** creates a read-only reference to a value. It does **not** mean the value it holds is **immutable**—just that the variable identifier cannot be reassigned." The VERY important piece here is that the **VALUE IS NOT IMMUTABLE**.
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+
+Immutable? What the heck does immutable mean? Well, if an object is immutable, for that instance the properties cannot be changed. But since **const **objects are NOT immutable; it means that a **const **object can have its \_properties \_changed within it.
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+
+That's just how it is and we have to work with it but if you come from the C# world and you think of a **const **never changing, be prepared for a **const **to be non-immutable in JavaScript.
+
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":4} -->
+
+#### Valid Example
+
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+
+Looking at a code example, this is a **valid **usage of const where we change the non-immutable value of an underlying property.
+
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/thetombomb91/6e1c28aa54ebe1bef286042569da8151","type":"rich","providerNameSlug":"embed-handler","className":""} -->
+
+https://gist.github.com/thetombomb91/6e1c28aa54ebe1bef286042569da8151
+
+Example of valid usage of const in JavaScript
+
+<!-- /wp:embed -->
+
+<!-- wp:heading {"level":4} -->
+
+#### Invalid Example
+
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+
+Now, it wouldn't be called **const **if everything was not constant about our objects. In the docs, we see that "the variable identifier cannot be reassigned". What this means is that we cannot \_completely \_reassign our **const **reference.
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+
+The following code is an example of what we **CANNOT **do with a **const**:
+
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https://gist.github.com/thetombomb91/67c6a4272d4fb97f4f30aa262bcc6089","type":"rich","providerNameSlug":"embed-handler","className":""} -->
+
+https://gist.github.com/thetombomb91/67c6a4272d4fb97f4f30aa262bcc6089
+
+Example of a invalid reassign of const
+
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+
+**const **in JavaScript made me uneasy at first. The ability to change properties within a **const **was a new concept to me. However, I took the time to learn about it and understand it. I hope that after this **const** is a little less scary for you as well.
+
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2272,"sizeSlug":"large"} -->
+
+![programming on a macbook](./img/wp-content-uploads-2020-08-emile-perron-xrVDYZRGdw4-unsplash-1-1024x576.jpg)
+
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+
+<!-- /wp:paragraph -->
